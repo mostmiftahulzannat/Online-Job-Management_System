@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Search </title>
+	<link rel="stylesheet" href="">
+	<script  src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<style>
+			p{
+				border: 1px solid black;
+				width: 500px;
+				padding: 5px;
+			}
+			.highlight{
+				background-color: yellow;
+			}
+		</style>
+
+
+</head>
+<body>
+	<form>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A consequatur quam nisi dolor quasi ipsam facilis in excepturi quis nemo dolorem, officiis itaque dolore tempore impedit, libero alias labore, corrupti.</p>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A consequatur quam nisi dolor quasi ipsam facilis in excepturi quis nemo dolorem, officiis itaque dolore tempore impedit, libero alias labore, corrupti.</p>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A consequatur quam nisi dolor quasi ipsam facilis in excepturi quis nemo dolorem, officiis itaque dolore tempore impedit, libero alias labore, corrupti.</p>
+		<input type="text" id="text">
+		<input type="button" id="search" value="search">
+		<input type="button" id="clear" value="clear">
+	</form>
+	
+</body>
+<script>
+	$(document).ready(function(){
+		$('#search').click(highlight);
+		$('#clear').click(clearSeletion);
+		function highlight(){
+			var searchText=$('#text').val();
+			var regExp = new RegExp(search Text,'g');
+			clearSeletion(){
+				$('p').each(function(){
+					var html = $(this).html();
+					var newHtml = html.replace(regExp.'<span class= "highlight">'+searchText+'</span>');
+					$(this).html(newHtml);
+				});
+			}
+			function clearSection(){
+				$('p').each(function){
+					$(this).find('.highlight').each(function(){
+						$(this).replaceWith($(this).html());
+					});
+				}
+			}
+		}
+	});
+</script>
+
+</html>
